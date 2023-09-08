@@ -2,5 +2,14 @@
 # fixing what’s keeping your Ubuntu container’s Nginx installation from listening on port 80
 apt-get update -y
 apt-get -y install nginx
-sed -i 's/8080/80/g' /etc/nginx/sites-available/default
+cat <<EOF > /etc/nginx/sites-available/default
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        return 301 https://\$host\$request_uri;
+    }
+}
+EOF
 service nginx restart
