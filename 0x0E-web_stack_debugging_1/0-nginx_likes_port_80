@@ -4,6 +4,11 @@ apt-get update -y
 apt-get -y install nginx
 if ! grep -q "listen 80" /etc/nginx/sites-available/default;
 then
-	sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
-fi
+	echo "server {
+        listen 80;
+        server_name _;
+}" > /etc/nginx/sites-available/custom_config
+	ln -s /etc/nginx/sites-available/custom_config /etc/nginx/sites-enabled/
+	rm -f /etc/nginx/sites-enabled/default
 service nginx restart
+fi
