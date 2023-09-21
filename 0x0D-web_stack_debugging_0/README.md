@@ -10,11 +10,11 @@ For this project, we expect to look at these concepts:
 
 ## Network basics:
 Networking is a big part of what made computers so powerful and why the Internet exists. It allows machines to communicate with each other.
-
-	1. What is a protocol
-	2. What is an IP address
-	3. What is TCP/IP
-	4. What is an Internet Protocol (IP) port?
+-
+-!	1. What is a protocol
+-!	2. What is an IP address
+-!	3. What is TCP/IP
+-!	4. What is an Internet Protocol (IP) port?
 ## Docker:
 
 What is Docker and why is it popular? Let’s first pull a Docker image and run a container:
@@ -104,13 +104,19 @@ sylvain@ubuntu:~$ cat answerfile
 #!/usr/bin/env bash
 # Fix my server with these magic 2 lines
 cp /etc/passwd /tmp/
+
 echo OK > /tmp/isworking
+
 sylvain@ubuntu:~$
+
 Note that as you cannot use interactive software such as emacs or vi in your Bash script, everything needs to be done from the command line (including file edition).
 
 ## Installing Docker
 For this project you will be given a container which you can use to solve the task. If you would like to have Docker so that you can experiment with it and/or solve this problem locally, you can install it on your machine, your Ubuntu 14.04 VM, or your Ubuntu 16.04 VM if you upgraded.
-Mac OS
-Windows
-Ubuntu 14.04(Note that Docker for Ubuntu 14 is deprecated and you will have to make some adjustments to the instructions when installing)
-Ubuntu 16.04
+
+![Mac OS]
+
+![](Windows)
+![Ubuntu 14.04](Note that Docker for Ubuntu 14 is deprecated and you will have to make some adjustments to the instructions when installing)
+
+![](Ubuntu 16.04)
