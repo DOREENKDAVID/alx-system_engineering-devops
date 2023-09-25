@@ -8,10 +8,8 @@ import json
 import requests
 import sys
 
-
 if __name__ == "__main__":
     url = 'https://jsonplaceholder.typicode.com/'
-
     user = '{}users'.format(url)
     res = requests.get(user)
     json_o = res.json()
@@ -24,12 +22,12 @@ if __name__ == "__main__":
         tasks = res.json()
         task_info = []
         for task in tasks:
-            dict_task = {"task": task.get('title'),
-                         "completed": task.get('completed'),
-                         "username": emp_name}
-        task_info.append(dict_task)
+            dict_task = {"username": emp_name,
+                         "task": task.get('title'),
+                         "completed": task.get('completed')}
+            task_info.append(dict_task)
 
-    d_task[str(userid)] = task_info
+        d_task[str(userid)] = task_info
     filename = 'todo_all_employees.json'
     with open(filename, mode='w') as f:
         json.dump(d_task, f)
