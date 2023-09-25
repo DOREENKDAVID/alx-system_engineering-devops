@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """ Script that takes emp ID as input and
 uses JSONPlaceholder API to get information
 about employee then writes the info on a JSON file """
