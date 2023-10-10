@@ -5,6 +5,7 @@ listed for a given subreddit."""
 
 import requests
 
+
 def top_ten(subreddit):
     """prints the titles of the first 10 hot posts
     listed for a given subreddit."""
@@ -19,9 +20,10 @@ def top_ten(subreddit):
 
     # Send an HTTP GET request to the API with the defined user agent
     response = requests.get(
-            apiUrl, headers={"user-agent": userAgent}, params={"limit": limits})
+            apiUrl, headers={"user-agent": userAgent},
+            params={"limit": limits})
 
-    # Check if the response is not successful (status code other than 200)
+    # Check if response is not successful (status code other than 200)
     if not response:
         # Print 'None' and return if the response is not successful
         print('None')
