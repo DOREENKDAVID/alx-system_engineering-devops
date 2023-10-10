@@ -10,15 +10,14 @@ REDDIT = "https://www.reddit.com/"
 HEADERS = {'user-agent': 'my-app/0.0.1'}
 
 
-def count_words(
-        subreddit, word_list, after="", keyword_counts=None):
-    if keyword_counts is None:
-        keyword_counts = Counter()
+def count_words(subreddit, word_list, after="", word_counts=None):
+    if word_counts is None:
+        word_counts = Counter()
 
     if after is None:
         # Sort the keywords by count descending then alphabetically ascending
-        sorted_counts = sorted(
-                keyword_counts.items(), key=lambda x: (-x[1], x[0]))
+        sorted_counts = sorted(word_counts.items(),
+                               key=lambda x: (-x[1], x[0]))
         for word, count in sorted_counts:
             print(f"{word.lower()}: {count}")
         return
@@ -54,9 +53,9 @@ def count_words(
 
             for word in words:
                 if word in word_list:
-                    keyword_counts[word] += 1
+                    word_counts[word] += 1
 
     except Exception:
         return
 
-    return count_words(subreddit, word_list, after, keyword_counts)
+    return count_words(subreddit, word_list, after, word_counts)
