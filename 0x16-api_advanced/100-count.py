@@ -9,13 +9,16 @@ from collections import Counter
 REDDIT = "https://www.reddit.com/"
 HEADERS = {'user-agent': 'my-app/0.0.1'}
 
-def count_words(subreddit, word_list, after="", keyword_counts=None):
+
+def count_words(
+        subreddit, word_list, after="", keyword_counts=None):
     if keyword_counts is None:
         keyword_counts = Counter()
 
     if after is None:
-        # Sort the keywords by count (descending) and then alphabetically (ascending)
-        sorted_counts = sorted(keyword_counts.items(), key=lambda x: (-x[1], x[0]))
+        # Sort the keywords by count descending then alphabetically ascending
+        sorted_counts = sorted(
+                keyword_counts.items(), key=lambda x: (-x[1], x[0]))
         for word, count in sorted_counts:
             print(f"{word.lower()}: {count}")
         return
@@ -26,7 +29,8 @@ def count_words(subreddit, word_list, after="", keyword_counts=None):
         'after': after
     }
 
-    r = requests.get(url, headers=HEADERS, params=params, allow_redirects=False)
+    r = requests.get(
+            url, headers=HEADERS, params=params, allow_redirects=False)
 
     if r.status_code != 200:
         return
