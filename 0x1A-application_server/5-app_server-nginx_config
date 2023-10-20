@@ -45,7 +45,7 @@ server {
 
         #server IP address
         server_name 54.175.181.87;
-        add_header X-SERVED-By "web-01";
+        add_header X-SERVED-By "269747-web-01";
 
         # serve /airbnb-onepage/
         location /airbnb-onepage/ {

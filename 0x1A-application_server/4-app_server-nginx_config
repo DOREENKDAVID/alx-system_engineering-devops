@@ -45,7 +45,7 @@ server {
 
         #server IP address
         server_name 54.175.181.87;
-        add_header X-SERVED-By "web-01";
+        add_header X-SERVED-By "269747-web-01";
 
         # serve /airbnb-onepage/
         location /airbnb-onepage/ {
@@ -67,11 +67,6 @@ server {
         #configure /2-hbnb rout of AirBnB_v4 as root location
         location / {
                 proxy_pass http://127.0.0.1:5003/2-hbnb;
-        }
-
-        # serve static content AirBnB_v4 
-        location /static {
-                alias web_dynamic/ststic/;
         }
 
         location /redirect_me {
