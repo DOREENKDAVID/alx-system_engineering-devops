@@ -53,31 +53,13 @@ server {
                 proxy_pass https://127.0.0.1:5000/airbnb-onepage/;
         }
 
-        #serve /number_odd_or_even/ route
-        location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
-
-                proxy_pass https://127.0.0.1:5001/number_odd_or_even/$1;
-        }
-
-        # serve AirBnB_v3 API
-        location /api {
-                proxy_pass http://127.0.0.1:5002/api;
-        }
-
-        #configure /2-hbnb rout of AirBnB_v4 as root location
-        location / {
-                proxy_pass http://127.0.0.1:5003/2-hbnb;
-        }
-
-        # serve static content AirBnB_v4 
-        location /static {
-                alias web_dynamic/ststic/;
-        }
-
         location /redirect_me {
                 return 301 https://github.com/DOREENKDAVID;
         }
-
+	
+	location / {
+               try_files $uri $uri/ =404;
+        }
         error_page 404 /404.html;
         location = /404.html {
                 internal;
@@ -110,9 +92,9 @@ server {
 #server {
 #       listen 80;
 #       listen [::]:80;
-#
+
 #       server_name example.com;
-#
+
 #       root /var/www/example.com;
 #       index index.html;
 #
